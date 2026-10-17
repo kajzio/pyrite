@@ -36,6 +36,13 @@ dnf5 remove -y gnome-software \
 # Podman
 systemctl enable podman.socket
 
+# Flatpak: flathub remote descriptor + first-boot preinstall
+install -d -m0755 /etc/flatpak/remotes.d
+curl --fail --retry 3 --silent --show-error \
+    -o /etc/flatpak/remotes.d/flathub.flatpakrepo \
+    https://dl.flathub.org/repo/flathub.flatpakrepo
+systemctl enable flatpak-preinstall.service
+
 # User and Group fix taken from bazzite:
 if [ -f /etc/passwd ]; then
     out=$(grep -v "root" /etc/passwd) || true
