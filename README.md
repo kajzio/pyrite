@@ -44,11 +44,11 @@ Pyrite uses Just for build automation (available by default on all Universal Blu
 
 #### Container Images
 ```
-just build # Base variant
+just build                  # Base variant
 ```
 #### ISOs
 ```
-just build-iso # Base variant
+just build-iso              # Base variant
 ```
 #### QCOW2 VM Images
 ```
