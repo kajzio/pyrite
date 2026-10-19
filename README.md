@@ -1,9 +1,7 @@
 # Pyrite
 
-Pyrite is Fedora Silverblue image taken from ublue-os/silverblue-main for novideo users (only 16xx series and newer)
-with custom stuff yet to be readded by me.
-
-It's built with the wonderful ublue-image-template!
+Pyrite is Fedora Silverblue image taken from ublue-os/silverblue-main for novideo (nvidia) users - currently only 16xx series and newer.
+It uses negativo17 repository for its nvidia drivers.
 
 ## Variants
 
@@ -17,10 +15,10 @@ You can freely rebase between them whenever you want.
 ### Switch from an existing Fedora Atomic / Universal Blue system
 ```
 # Main: liquid-pyrite
-sudo bootc switch --enforce-container-sigpolicy ghcr.io/pyrowar/liquid-pyrite:latest
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/kajzio/liquid-pyrite:latest
 
 # OGC: volatile-pyrite
-sudo bootc switch --enforce-container-sigpolicy ghcr.io/pyrowar/volatile-pyrite:latest
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/kajzio/volatile-pyrite:latest
 ```
 
 ### Install via ISO
@@ -30,7 +28,7 @@ Not released yet.
 ### Image Verification
 All images are signed with Cosign. The public key is included in this repository as cosign.pub.
 ```
-cosign verify --key cosign.pub ghcr.io/pyrowar/liquid-pyrite:latest
+cosign verify --key cosign.pub ghcr.io/kajzio/liquid-pyrite:latest
 ```
 ### Changing Channels
 Switch your system to a different release channel at any time:
@@ -46,15 +44,16 @@ Pyrite uses Just for build automation (available by default on all Universal Blu
 
 #### Container Images
 ```
-soon.
+just build # Base variant
 ```
 #### ISOs
 ```
-soon.
+just build-iso # Base variant
 ```
 #### QCOW2 VM Images
 ```
-soon.
+just build-qcow2            # Build base QCOW2
+just run-vm-qcow2           # Build and run in a VM
 ```
 Run `just` with no arguments to see all available recipes.
 
