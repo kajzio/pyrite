@@ -20,7 +20,8 @@ dnf5 install -y gnome-shell-extension-caffeine \
 	syncthing \
 	sushi \
 
-dnf5 remove -y gnome-software \
+dnf5 remove -y firefox \
+    gnome-software \
 	gnome-extensions-app \
 	gnome-classic-session \
 	gnome-shell-extension-background-logo \
